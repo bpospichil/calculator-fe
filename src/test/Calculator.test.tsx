@@ -145,7 +145,7 @@ describe("Calculator", () => {
     });
   });
 
-  it("chains operations: 3 + 4 × =", async () => {
+  it("chains operations: 3 + 4 × 2 =", async () => {
     // 3 + 4 should first resolve to 7
     mockFetch(7);
     render(<Calculator />);
