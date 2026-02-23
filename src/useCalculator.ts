@@ -85,7 +85,9 @@ export function useCalculator() {
       if (prev.loading) return prev;
       const value = parseFloat(prev.display);
       if (value === 0) return prev;
-      return { ...prev, display: String(-value), error: null };
+      const current = prev.display;
+      const newDisplay = current.startsWith("-") ? current.slice(1) : "-" + current;
+      return { ...prev, display: newDisplay, error: null };
     });
   }, [set]);
 
