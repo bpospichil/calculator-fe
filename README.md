@@ -120,7 +120,7 @@ npm run test:watch
 
 ### Test Coverage
 
-The test suite (`src/test/Calculator.test.tsx`) covers **13 cases**:
+The test suite (`src/test/Calculator.test.tsx`) covers **14 cases**:
 
 | # | Test Case | What it verifies |
 |---|---|---|
@@ -137,6 +137,7 @@ The test suite (`src/test/Calculator.test.tsx`) covers **13 cases**:
 | 11 | Divide-by-zero error | `5 ÷ 0 =` shows error message from backend |
 | 12 | Chained operations | `3 + 4 × 2 =` resolves sequentially (`7` then `14`) |
 | 13 | Max digit length | Stops accepting input after 16 digits |
+| 14 | Decimal after operator | `5 + .3` resets operand to `0.3` |
 
 ---
 
