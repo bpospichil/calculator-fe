@@ -120,7 +120,7 @@ npm run test:watch
 
 ### Test Coverage
 
-The test suite (`src/test/Calculator.test.tsx`) covers **14 cases**:
+The test suite (`src/test/Calculator.test.tsx`) covers **13 cases**:
 
 | # | Test Case | What it verifies |
 |---|---|---|
@@ -131,13 +131,12 @@ The test suite (`src/test/Calculator.test.tsx`) covers **14 cases**:
 | 5 | Multiple decimals blocked | `1` → `.` → `.` → `2` shows `1.2` |
 | 6 | AC (clear) | Resets display to `0` |
 | 7 | Toggle sign (+/−) | `7` → `+/−` shows `-7` |
-| 8 | Percentage | `50` → `%` shows `0.5` |
-| 9 | Addition via backend | `5 + 3 =` calls API and shows `8` |
-| 10 | Division via backend | `10 ÷ 2 =` calls API and shows `5` |
-| 11 | Divide-by-zero error | `5 ÷ 0 =` shows error message from backend |
-| 12 | Chained operations | `3 + 4 × 2 =` resolves sequentially (`7` then `14`) |
-| 13 | Max digit length | Stops accepting input after 16 digits |
-| 14 | Decimal after operator | `5 + .3` resets operand to `0.3` |
+| 8 | Addition via backend | `5 + 3 =` calls API and shows `8` |
+| 9 | Division via backend | `10 ÷ 2 =` calls API and shows `5` |
+| 10 | Divide-by-zero error | `5 ÷ 0 =` shows error message from backend |
+| 11 | Chained operations | `3 + 4 × 2 =` resolves sequentially (`7` then `14`) |
+| 12 | Max digit length | Stops accepting input after 16 digits |
+| 13 | Decimal after operator | `5 + .3` resets operand to `0.3` |
 
 ---
 
