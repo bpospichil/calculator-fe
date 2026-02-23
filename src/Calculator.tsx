@@ -88,6 +88,7 @@ export default function Calculator() {
             <p
               className="text-red-400 text-xs sm:text-sm mb-1 truncate w-full text-right"
               data-testid="error"
+              role="alert"
             >
               {state.error}
             </p>
