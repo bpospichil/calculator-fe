@@ -91,14 +91,6 @@ export function useCalculator() {
     });
   }, [set]);
 
-  const inputPercent = useCallback(() => {
-    set((prev) => {
-      if (prev.loading) return prev;
-      const value = parseFloat(prev.display);
-      return { ...prev, display: String(value / 100), error: null };
-    });
-  }, [set]);
-
   const performOperation = useCallback(
     async (nextOperator: string) => {
       const current = stateRef.current;
@@ -167,7 +159,6 @@ export function useCalculator() {
     inputDecimal,
     clear,
     toggleSign,
-    inputPercent,
     performOperation,
   };
 }

@@ -2,9 +2,8 @@ import { useCalculator } from "./useCalculator";
 
 const BUTTON_ROWS = [
   [
-    { label: "AC", type: "function" as const },
+    { label: "AC", type: "function" as const, wide: true },
     { label: "+/−", type: "function" as const },
-    { label: "%", type: "function" as const },
     { label: "÷", type: "operator" as const },
   ],
   [
@@ -58,7 +57,6 @@ export default function Calculator() {
     inputDecimal,
     clear,
     toggleSign,
-    inputPercent,
     performOperation,
   } = useCalculator();
 
@@ -74,7 +72,6 @@ export default function Calculator() {
       case "function":
         if (label === "AC") clear();
         else if (label === "+/−") toggleSign();
-        else if (label === "%") inputPercent();
         break;
     }
   };

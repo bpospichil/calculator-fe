@@ -15,17 +15,17 @@ function press(label: string) {
 // ---------- mock fetch ----------
 
 function mockFetch(result: number) {
-  global.fetch = vi.fn().mockResolvedValue({
+  globalThis.fetch = vi.fn().mockResolvedValue({
     ok: true,
     json: () => Promise.resolve({ result }),
-  });
+  }) as unknown as typeof fetch;
 }
 
 function mockFetchError(message: string) {
-  global.fetch = vi.fn().mockResolvedValue({
+  globalThis.fetch = vi.fn().mockResolvedValue({
     ok: false,
     json: () => Promise.resolve({ error: message }),
-  });
+  }) as unknown as typeof fetch;
 }
 
 // ---------- tests ----------
@@ -86,14 +86,6 @@ describe("Calculator", () => {
     expect(getDisplay()).toHaveTextContent("-7");
   });
 
-  it("calculates percentage", () => {
-    render(<Calculator />);
-    press("5");
-    press("0");
-    press("%");
-    expect(getDisplay()).toHaveTextContent("0.5");
-  });
-
   it("performs addition via the backend", async () => {
     mockFetch(8);
     render(<Calculator />);
@@ -107,10 +99,10 @@ describe("Calculator", () => {
       expect(getDisplay()).toHaveTextContent("8");
     });
 
-    expect(global.fetch).toHaveBeenCalledWith("/calculate", {
+    expect(globalThis.fetch).toHaveBeenCalledWith("/calculate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ operand1: 5, operand2: 3, operator: "+" }),
+      body: JSON.stringify({ a: 5, b: 3, operation: "add" }),
     });
   });
 

@@ -215,13 +215,13 @@ curl -X POST http://localhost:8080/calculate \
 ### Build the image
 
 ```bash
-docker build -t calculator-frontend .
+docker build -t calculator-fe .
 ```
 
 ### Run the container
 
 ```bash
-docker run -p 3000:80 calculator-frontend
+docker run -p 3000:80 calculator-fe
 ```
 
 The app is served at `http://localhost:3000`. The Nginx configuration proxies `/calculate` to `http://backend:8080` — this expects a Docker network where the Go backend container is named `backend`.
