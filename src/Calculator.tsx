@@ -40,6 +40,17 @@ const OPERATOR_MAP: Record<string, string> = {
   "=": "=",
 };
 
+const ARIA_LABEL_MAP: Record<string, string> = {
+  "÷": "divide",
+  "×": "multiply",
+  "−": "subtract",
+  "+": "add",
+  "=": "equals",
+  "+/−": "toggle sign",
+  "%": "percent",
+  AC: "all clear",
+};
+
 export default function Calculator() {
   const {
     state,
@@ -118,6 +129,7 @@ export default function Calculator() {
                   <button
                     key={btn.label}
                     data-testid={`btn-${btn.label}`}
+                    aria-label={ARIA_LABEL_MAP[btn.label] ?? btn.label}
                     onClick={() => handleButton(btn.label, btn.type)}
                     disabled={state.loading}
                     className={[
