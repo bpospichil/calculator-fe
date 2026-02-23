@@ -98,6 +98,8 @@ export default function Calculator() {
               state.loading ? "opacity-50 animate-pulse" : ""
             }`}
             data-testid="display"
+            aria-live="polite"
+            role="status"
           >
             {state.display}
           </span>
